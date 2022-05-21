@@ -36,34 +36,6 @@ function passwordsize() {
     return passwordlength;
 }
 
-// Function for figuring out if user wants Uppercase Letter(s) in password.
-function uppercaselettersverificaiton() {
-    // prompt is what messages the user and allows for input.
-    uppercaselettersverify = prompt("Do you want to use Uppercase Letters in your password? \n(Yes or No)");
-    uppercaselettersverify = uppercaselettersverify.toLowerCase();
-    // if the user doesnt type anything they are alerted to type `yes` or `no`.
-    if (uppercaselettersverify === null || uppercaselettersverify === "") {
-        alert("Answer Yes or No.");
-        uppercaselettersverificaiton();
-    }
-    // if user types `yes` it tells the password generator -include Uppercase letters.
-    else if (uppercaselettersverify === "yes" || uppercaselettersverify === "y") {
-        uppercaselettersverify = true;
-        return uppercaselettersverify;
-    }
-    // if user types `no` it tells the password generator -dont include Uppercase letters.
-    else if (uppercaselettersverify === "no" || uppercaselettersverify === "n") {
-        uppercaselettersverify = false;
-        return uppercaselettersverify
-    }
-    // if user types anything other than `yes` or `no` they are alerted to type either `yes` or `no`.
-    else {
-        alert("Answer Yes or No.");
-        uppercaselettersverificaiton();
-    }
-    return uppercaselettersverify;
-}
-
 // Function for figuring out if user wants number(s) in password.
 function numsverification() {
     // prompt is what messages the user and allows for input.
@@ -120,6 +92,34 @@ function specialverification() {
     return specialverify;
 }
 
+// Function for figuring out if user wants Uppercase Letter(s) in password.
+function uppercaselettersverificaiton() {
+    // prompt is what messages the user and allows for input.
+    uppercaselettersverify = prompt("Do you want to use Uppercase Letters in your password? \n(Yes or No)");
+    uppercaselettersverify = uppercaselettersverify.toLowerCase();
+    // if the user doesnt type anything they are alerted to type `yes` or `no`.
+    if (uppercaselettersverify === null || uppercaselettersverify === "") {
+        alert("Answer Yes or No.");
+        uppercaselettersverificaiton();
+    }
+    // if user types `yes` it tells the password generator -include Uppercase letters.
+    else if (uppercaselettersverify === "yes" || uppercaselettersverify === "y") {
+        uppercaselettersverify = true;
+        return uppercaselettersverify;
+    }
+    // if user types `no` it tells the password generator -dont include Uppercase letters.
+    else if (uppercaselettersverify === "no" || uppercaselettersverify === "n") {
+        uppercaselettersverify = false;
+        return uppercaselettersverify
+    }
+    // if user types anything other than `yes` or `no` they are alerted to type either `yes` or `no`.
+    else {
+        alert("Answer Yes or No.");
+        uppercaselettersverificaiton();
+    }
+    return uppercaselettersverify;
+}
+
 // Generates password using criteria inputed by user.
 function generatePassword() {
     passwordsize();
@@ -162,11 +162,10 @@ function generatePassword() {
 
 // Write password to the #password input.
 function writePassword() {
-    var password = generatePassword();
+    var randompassword = "";
+    randompassword = generatePassword();
     var passwordText = document.querySelector("#password");
-
     passwordText.value = password;
-
 }
 
 // Add event listener to generate button.
