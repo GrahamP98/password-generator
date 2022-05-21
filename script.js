@@ -3,21 +3,44 @@ var lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var special = "<>,./?'[{]}|=+-_)(*&^%$#@!~`"
 var nums = "0123456789"
-var numscheck;
-var specialcheck;
-var uppercaseletterscheck;
-var password length;
+var numsverify;
+var specialverify;
+var uppercaselettersverify;
+var passwordlength;
 
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+// Function for figuring out password size
+function passwordsize() {
+    passwordlength = prompt("How many characters would you like in your password? (must be at least 8 characters but no more than 128.)")
+
+    if (passwordlength < 8){
+        alert("Password must have between 8-128 characters.");
+        passwordsize();
+    }
+    else if (passwordlength > 128){
+        alert("Password must have between 8-128 characters.");
+        passwordsize();
+    }
+    else {
+        alert("....")
+    }
+    return passwordlength;
+}
+
+function generatePassword(){
+    passwordsize();
+    console.log(passwordsize);
+}
+
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
 
 }
 
