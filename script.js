@@ -131,34 +131,36 @@ function generatePassword() {
     var characters = lowercaseletters;
     var password = "";
     if (numsverify && specialverify && uppercaselettersverify) {
-        characters += nums + special + uppercaseletters;
+        characters = characters.concat(nums, special, uppercaseletters);
     }
     else if (numsverify && specialverify) {
-        characters += nums + special;
+        characters = characters.concat(nums, special);
     }
     else if (specialverify && uppercaselettersverify) {
-        characters += special + uppercaseletters;
+        characters = characters.concat(special, uppercaseletters);
     }
     else if (numsverify && uppercaselettersverify) {
-        characters += nums + uppercaseletters;
+        characters = characters.concat(nums, uppercaseletters);
     }
     else if (numsverify) {
-        characters += nums;
+        characters = characters.concat(nums);
     }
     else if (uppercaselettersverify) {
-        characters += uppercaseletters;
+        characters = characters.concat(uppercaseletters);
     }
     else if (specialverify) {
-        characters += special;
+        characters = characters.concat(special);
     }
     else {
         characters === lowercaseletters;
     }
-    for (var i = 0; i < passwordlength; i++) {
-        password += characters.charAt(Math.floor(Math.random() * characters.length));
+    let finalPassword = ""
+    for (let i = 0; i < passwordlength; i++) {
+        let rng = [Math.floor(Math.random() * characters.length)];
+        finalPassword = finalPassword + characters[rng];
     }
-    return password;
-}
+    return finalPassword;
+};
 
 // Write password to the #password input.
 function writePassword() {

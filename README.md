@@ -1,5 +1,6 @@
 # password-generator
 [GITHUB PROFILE](https://github.com/GrahamP98)
+[Password-Generator](https://grahamp98.github.io/password-generator/)
 
 ## Table Of Contents
 1. [Description](#description)
