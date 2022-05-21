@@ -1,16 +1,13 @@
 // Assignment code here.
-var lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var special = "<>,./?'[{]}|=+-_)(*&^%$#@!~`";
-var nums = "0123456789";
+var generateBtn = document.querySelector("#generate");
+var lowercaseletters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var uppercaseletters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var special = ["<", ">", ".", "/", "?", "'", "[", "{", "]", "}", "|", "=", "+", "-", "_", ")", "(", "*", "&", "^", "%", "$", "#", "@", "!", "~", "`",];
+var nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var numsverify;
 var specialverify;
 var uppercaselettersverify;
 var passwordlength;
-
-
-// Get references to the #generate element.
-var generateBtn = document.querySelector("#generate");
 
 // Function for figuring out password size.
 function passwordsize() {
@@ -25,7 +22,7 @@ function passwordsize() {
         alert("Password must have between 8-128 characters.");
         passwordsize();
     }
-    // is Nan (not a number) if user inputs something thats not a number they are alerted that is must be a number through 8 and 128.
+    // is Nan (is not a number) if user inputs something thats not a number they are alerted that is must be a number through 8 and 128.
     else if (isNaN(passwordlength)) {
         alert("must be a number through 8 and 128.");
         passwordsize();
@@ -42,7 +39,7 @@ function numsverification() {
     numsverify = prompt("Do you want to use numbers in your password? \n(Yes or No)");
     numsverify = numsverify.toLowerCase();
     // if the user doesnt type anything they are alerted to type `yes` or `no`.
-    if (numsverify === null || numsverify === "") {
+    if (numsverify === null || numsverify === []) {
         alert("Answer Yes or No.");
         numsverification();
     }
@@ -70,7 +67,7 @@ function specialverification() {
     specialverify = prompt("Do you want to use special characters in your password? \n(Yes or No)");
     specialverify = specialverify.toLowerCase();
     // if the user doesnt type anything they are alerted to type `yes` or `no`.
-    if (specialverify === null || specialverify === "") {
+    if (specialverify === null || specialverify === []) {
         alert("Answer Yes or No.");
         specialverification();
     }
@@ -98,7 +95,7 @@ function uppercaselettersverificaiton() {
     uppercaselettersverify = prompt("Do you want to use Uppercase Letters in your password? \n(Yes or No)");
     uppercaselettersverify = uppercaselettersverify.toLowerCase();
     // if the user doesnt type anything they are alerted to type `yes` or `no`.
-    if (uppercaselettersverify === null || uppercaselettersverify === "") {
+    if (uppercaselettersverify === null || uppercaselettersverify === []) {
         alert("Answer Yes or No.");
         uppercaselettersverificaiton();
     }
@@ -123,7 +120,7 @@ function uppercaselettersverificaiton() {
 // Generates password using criteria inputed by user.
 function generatePassword() {
     passwordsize();
-    console.log(passwordsize);
+    console.log(passwordlength);
     uppercaselettersverificaiton();
     console.log(uppercaselettersverify);
     numsverification();
@@ -157,13 +154,15 @@ function generatePassword() {
     else {
         characters === lowercaseletters;
     }
+    for (var i = 0; i < passwordlength; i++) {
+        password += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
     return password;
 }
 
 // Write password to the #password input.
 function writePassword() {
-    var randompassword = "";
-    randompassword = generatePassword();
+    var password = generatePassword();
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
 }
