@@ -25,11 +25,45 @@ function passwordsize() {
         alert("Password must have between 8-128 characters.");
         passwordsize();
     }
+    // is Nan (not a number) if user inputs something thats not a number they are alerted that is must be a number through 8 and 128.
+    else if (isNaN(passwordlength)) {
+        alert("must be a number through 8 and 128.");
+        passwordsize();
+    }
     else {
         alert("You will be asked what you want included in your password. \n `No` input for the next prompts will issue a lowercase letter password.");
     }
     return passwordlength;
 }
+
+// Function for figuring out if user wants Uppercase Letter(s) in password.
+function uppercaselettersverificaiton() {
+    // prompt is what messages the user and allows for input.
+    uppercaselettersverify = prompt("Do you want to use Uppercase Letters in your password? \n(Yes or No)");
+    uppercaselettersverify = uppercaselettersverify.toLowerCase();
+    // if the user doesnt type anything they are alerted to type `yes` or `no`.
+    if (uppercaselettersverify === null || uppercaselettersverify === "") {
+        alert("Answer Yes or No.");
+        uppercaselettersverificaiton();
+    }
+    // if user types `yes` it tells the password generator -include Uppercase letters.
+    else if (uppercaselettersverify === "yes" || uppercaselettersverify === "y") {
+        uppercaselettersverify = true;
+        return uppercaselettersverify;
+    }
+    // if user types `no` it tells the password generator -dont include Uppercase letters.
+    else if (uppercaselettersverify === "no" || uppercaselettersverify === "n") {
+        uppercaselettersverify = false;
+        return uppercaselettersverify
+    }
+    // if user types anything other than `yes` or `no` they are alerted to type either `yes` or `no`.
+    else {
+        alert("Answer Yes or No.");
+        uppercaselettersverificaiton();
+    }
+    return uppercaselettersverify;
+}
+
 // Function for figuring out if user wants number(s) in password.
 function numsverification() {
     // prompt is what messages the user and allows for input.
@@ -57,12 +91,45 @@ function numsverification() {
     }
     return numsverify;
 }
-// Generates password using criteria inputed by user. !showing as "[empty]" because i havent put in the functions for nums, special, or uppercase letters yet!
+
+// Function for figuring out if user wants special character(s) in password.
+function specialverification() {
+    // prompt is what messages the user and allows for input.
+    specialverify = prompt("Do you want to use special characters in your password? \n(Yes or No)");
+    specialverify = specialverify.toLowerCase();
+    // if the user doesnt type anything they are alerted to type `yes` or `no`.
+    if (specialverify === null || specialverify === "") {
+        alert("Answer Yes or No.");
+        specialverification();
+    }
+    // if user types `yes` it tells the password generator -include special characters.
+    else if (specialverify === "yes" || specialverify === "y") {
+        specialverify = true;
+        return specialverify;
+    }
+    // if user types `no` it tells the password generator -dont include special characters.
+    else if (specialverify === "no" || specialverify === "n") {
+        specialverify = false;
+        return specialverify
+    }
+    // if user types anything other than `yes` or `no` they are alerted to type either `yes` or `no`.
+    else {
+        alert("Answer Yes or No.");
+        specialverification();
+    }
+    return specialverify;
+}
+
+// Generates password using criteria inputed by user.
 function generatePassword() {
     passwordsize();
     console.log(passwordsize);
+    uppercaselettersverificaiton();
+    console.log(uppercaselettersverify);
     numsverification();
     console.log(numsverify);
+    specialverification();
+    console.log(specialverify);
     // determines which characters to use. based on selection from user.
     var characters = lowercaseletters;
     var password = "";
