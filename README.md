@@ -22,11 +22,8 @@ To run the page simply click on the deployment URL [here](https://grahamp98.gith
 One page. click generate to run prompts. fill out the prompts to generate a password.
 
 ## Visuals
-![screenshot of Project Page]()
-![screenshot of Project Page]()
-![screenshot of Project Page]()
-![screenshot of Project Page]()
-![screenshot of Project Page]()
+![screenshot of Project Page](./assets/images/Password-Generator%20home.png)
+![screenshot of Project Page](./assets/images/Password-Generator%20password.png)
 
 ## Resources
 
@@ -35,19 +32,7 @@ One page. click generate to run prompts. fill out the prompts to generate a pass
 [Repository](https://github.com/GrahamP98/password-generator)
 
 ## Bugs
-1. Projects need to be inserted where placeholder images are.
-
-2.insert media queries 
-
-3.insert banner image
-
-optional
-
-1. give the page more style throughout
-
-2. have project images expand when hovering and start playing a video of the project UI.
-
-3. antimated background
+1. N/A (list bugs here if found)
 
 ## References
 math floor
