@@ -9,7 +9,7 @@
 4. [Visuals](#visuals)
 5. [Resources](#resources)
 6. [Bugs](#bugs)
-7. [References] (#references)
+7. [References](#references)
 
 
 ## Description
