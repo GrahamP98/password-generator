@@ -129,7 +129,6 @@ function generatePassword() {
     console.log(specialverify);
     // determines which characters to use. based on selection from user.
     var characters = lowercaseletters;
-    var password = "";
     if (numsverify && specialverify && uppercaselettersverify) {
         characters = characters.concat(nums, special, uppercaseletters);
     }
